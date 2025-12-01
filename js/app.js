@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             mostrarAlerta(`El campo ${e.target.id} es obligatorio`, e.target.parentElement);
             
         } else {
-            console.log('Campo con contendio');
+            eliminarAlerta(e.target.parentElement);
         }
     }
 
@@ -41,15 +41,14 @@ document.addEventListener('DOMContentLoaded', function() {
         referencia.appendChild(error);    
     }
 
+    function eliminarAlerta(referencia) {
+        const alerta = referencia.querySelector('.bg-red-600');
 
-
-
-
-
-
-
-
-
+        if (alerta) {
+            alerta.remove();
+        }
+        
+    }
 
 });
 
