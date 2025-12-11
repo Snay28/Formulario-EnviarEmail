@@ -13,12 +13,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputMensaje = document.querySelector('#mensaje');
     const formulario = document.querySelector('#formulario');
     const botom = document.querySelector('#formulario button[type="submit"]');
+    const btnReset = document.querySelector('#formulario button[type="reset"]');
 
     // Asingar Eventos
 
     inputEmail.addEventListener('input', validar);
     inputAsunto.addEventListener('input', validar);
     inputMensaje.addEventListener('input', validar);
+
+    btnReset.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // Reiniciar el objeto
+        campos.email = ''
+        campos.asunto = ''
+        campos.mensaje = ''
+        
+        formulario.reset();
+        comprobarCampos();
+    })
 
     // Funciones
 
