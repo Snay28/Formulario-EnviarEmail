@@ -34,6 +34,29 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
     // Funciones
+    function enviarEmail(e) {
+        e.preventDefault();
+
+        spinner.classList.remove('hidden');
+        spinner.classList.add('flex');
+
+        setTimeout(() => {
+            spinner.classList.add('hidden');
+            spinner.classList.remove('flex');
+            // Reinicio del objeto 'Campos'.
+            resetFormulario();
+
+            // Alerta
+
+            const alertaExito = document.createElement('P');
+            alertaExito.textContent = 'Mensaje enviado correctamete';
+            alertaExito.classList.add('bg-green-500', 'p-2', 'text-center', 'text-whith', 'raunded-lg', 'mt-10', 'font-bold', 'text-sm', 'uppercase');
+            formulario.appendChild(alertaExito);
+            setTimeout(() => {
+                alertaExito.classList.add('hidden');
+            }, 3000);
+        }, 3000);
+    }
 
     function validar(e) {
         // console.log(e.target.parentElement.nextElementSibling);
